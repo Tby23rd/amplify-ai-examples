@@ -2,22 +2,22 @@ import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
 
 const schema = a.schema({
   chat: a.conversation({
-    aiModel: a.ai.model("Claude 3.5 Sonnet"),
+    aiModel: a.ai.model("Claude 3.5 Sonnet v2"),
     systemPrompt: `You are a helpful assistant`,
   })
     .authorization((allow) => allow.owner()),
 
   chatNamer: a
     .generation({
-      aiModel: a.ai.model("Claude 3 Haiku"),
-      systemPrompt: `You are a helpful assistant that writes descriptive names for conversations. Names should be 2-10 words long`,
+      aiModel: a.ai.model("Claude 3.5 Haiku"),
+      systemPrompt: `You are a helpful assistant that writes descriptive names for conversations. Names should be 2-10 words long. Return only the name without any additional text or formatting.`,
     })
     .arguments({
-      content: a.string(),
+      content: a.string().required(),
     })
     .returns(
       a.customType({
-        name: a.string(),
+        name: a.string().required(),
       })
     )
     .authorization((allow) => [allow.authenticated()]),

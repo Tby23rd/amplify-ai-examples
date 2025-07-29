@@ -6,6 +6,7 @@ import { View } from "@aws-amplify/ui-react";
 import { AIConversation } from "@aws-amplify/ui-react-ai";
 import { useRouter } from "next/navigation";
 
+
 export default function Home() {
   const { createConversation } = React.useContext(ConversationsContext);
   const router = useRouter();

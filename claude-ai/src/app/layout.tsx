@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { ColorMode } from "@aws-amplify/ui-react";
 import { ThemeStyle } from "@aws-amplify/ui-react/server";
-import { ConfigureAmplify } from "./ConfigureAmplify";
+
 import { theme } from "@/theme";
 import { Layout } from "@/components/Layout";
 import { Sidebar } from "@/components/Sidebar";
@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body {...theme.containerProps({ colorMode })}>
         <Layout>
-          <ConfigureAmplify />
+
 
           <Sidebar>
             <LogoutButton />
